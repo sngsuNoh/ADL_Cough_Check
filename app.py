@@ -209,12 +209,6 @@ def update_laeq_lamax_label(redraw: bool = True):
     if analysis_info['prev_laeq']:
         if lamax > analysis_info['prev_laeq'][-1] + analysis_info['cough_size']:
             analysis_info['cough'] += 1
-    print('prev laeq')
-    print(analysis_info['prev_laeq'])
-    print('lamax')
-    print(lamax)
-    print('cough count')
-    print(analysis_info['cough'])
     
     analysis_info['prev_laeq'].append(laeq)
     
