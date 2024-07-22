@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 from sound import load_audio
 from sound.level import calculate_rms, rms2db, calculate_lamax, calculate_laeq, find_peaks, find_spike_indices, lamax_adjustment
 from sound.weighting import A_weighting
-# from numpy.typing import *
 
 audio_info = {
     'generator': iter([]),
