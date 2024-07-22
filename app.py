@@ -133,16 +133,8 @@ def draw_spl_data(spl, sr:int):
     plot_canvas.draw()
 
 def get_interval(end_t: float) -> float:
-    if end_t >= 10**5:
-        return 3.0
-    elif end_t >= 10**4:
-        return 2.5
-    elif end_t >= 10**3:
-        return 2.0
-    elif end_t >= 10**2:
-        return 1.5
-    else:
-        return 1.0
+    if math.log10(n) >= 2: return 0.5*(int(log10(n)+1))
+    else: return 1.0
 
 def get_ticks(times, interval: float = 1.0):
     start_t = audio_info['frame_start_t']
@@ -208,15 +200,6 @@ def update_laeq_lamax_label(redraw: bool = True):
     if analysis_info['prev_laeq']:
         if lamax > analysis_info['prev_laeq'][-1] + analysis_info['cough_size']:
             analysis_info['cough'] += 1
-    # print('prev laeq')
-    # print(analysis_info['prev_laeq'])
-    # print('now laeq')
-    # print(laeq)
-    # print('lamax')
-    # print(lamax)
-    # print('cough count')
-    # print(analysis_info['cough'])
-    
     analysis_info['prev_laeq'].append(laeq)
     
     cough_str.set(f'Counted Cough : {analysis_info["cough"]}')
